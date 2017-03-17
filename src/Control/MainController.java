@@ -13,7 +13,7 @@ public class MainController {
     private BinaryTree<String> binaryTree;
 
     public MainController(){
-        binaryTree = new BinaryTree<>(""); // Ein Baum ohne Wurzel-Inhalt ist auf dauer ein leerer Baum - es lassen sich laut Dokumentation nichtmal Bäume anhängen. Also wird die Wurzel gefüllt.
+        binaryTree = new BinaryTree<>("Du bist eine null"); // Ein Baum ohne Wurzel-Inhalt ist auf dauer ein leerer Baum - es lassen sich laut Dokumentation nichtmal Bäume anhängen. Also wird die Wurzel gefüllt.
         createMorseTree();
     }
 
@@ -23,10 +23,95 @@ public class MainController {
     private void createMorseTree(){
         //TODO 02: Vervollständige des Morsebaum. Such bei google nach "morsecode as tree" als Vorlage. Das hilft, die Übersicht zu wahren.
         BinaryTree<String> left = new BinaryTree<>("E");
-        BinaryTree<String> right = new BinaryTree<>("T");
+        BinaryTree<String> anderesLeft = new BinaryTree<>("T");
 
         binaryTree.setLeftTree(left);
-        binaryTree.setRightTree(right);
+        binaryTree.setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("I");
+        anderesLeft = new BinaryTree<>("A");
+
+        binaryTree.getLeftTree().setLeftTree(left);
+        binaryTree.getLeftTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("S");
+        anderesLeft = new BinaryTree<>("U");
+
+        binaryTree.getLeftTree().getLeftTree().setLeftTree(left);
+        binaryTree.getLeftTree().getLeftTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("H");
+        anderesLeft = new BinaryTree<>("V");
+
+        binaryTree.getLeftTree().getLeftTree().getLeftTree().setLeftTree(left);
+        binaryTree.getLeftTree().getLeftTree().getLeftTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("F");
+        anderesLeft = new BinaryTree<>("Ü");
+
+        binaryTree.getLeftTree().getLeftTree().getRightTree().setLeftTree(left);
+        binaryTree.getLeftTree().getLeftTree().getRightTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("R");
+        anderesLeft = new BinaryTree<>("W");
+
+        binaryTree.getLeftTree().getRightTree().setLeftTree(left);
+        binaryTree.getLeftTree().getRightTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("L");
+        anderesLeft = new BinaryTree<>("Ä");
+
+        binaryTree.getLeftTree().getRightTree().getLeftTree().setLeftTree(left);
+        binaryTree.getLeftTree().getRightTree().getLeftTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("P");
+        anderesLeft = new BinaryTree<>("J");
+
+        binaryTree.getLeftTree().getRightTree().getRightTree().setLeftTree(left);
+        binaryTree.getLeftTree().getRightTree().getRightTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("N");
+        anderesLeft = new BinaryTree<>("M");
+
+        binaryTree.getRightTree().setLeftTree(left);
+        binaryTree.getRightTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("D");
+        anderesLeft = new BinaryTree<>("K");
+
+        binaryTree.getRightTree().getLeftTree().setLeftTree(left);
+        binaryTree.getRightTree().getLeftTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("B");
+        anderesLeft = new BinaryTree<>("X");
+
+        binaryTree.getRightTree().getLeftTree().getLeftTree().setLeftTree(left);
+        binaryTree.getRightTree().getLeftTree().getLeftTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("C");
+        anderesLeft = new BinaryTree<>("Y");
+
+        binaryTree.getRightTree().getLeftTree().getRightTree().setLeftTree(left);
+        binaryTree.getRightTree().getLeftTree().getRightTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("G");
+        anderesLeft = new BinaryTree<>("O");
+
+        binaryTree.getRightTree().getRightTree().setLeftTree(left);
+        binaryTree.getRightTree().getRightTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("Z");
+        anderesLeft = new BinaryTree<>("Q");
+
+        binaryTree.getRightTree().getRightTree().getLeftTree().setLeftTree(left);
+        binaryTree.getRightTree().getRightTree().getLeftTree().setRightTree(anderesLeft);
+
+        left = new BinaryTree<>("Ö");
+        anderesLeft = new BinaryTree<>("");
+
+        binaryTree.getRightTree().getRightTree().getRightTree().setLeftTree(left);
+        binaryTree.getRightTree().getRightTree().getRightTree().setRightTree(anderesLeft);
+
     }
 
     /**
