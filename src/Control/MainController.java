@@ -13,7 +13,7 @@ public class MainController {
     private BinaryTree<String> binaryTree;
 
     public MainController(){
-        binaryTree = new BinaryTree<>("Du bist eine null"); // Ein Baum ohne Wurzel-Inhalt ist auf dauer ein leerer Baum - es lassen sich laut Dokumentation nichtmal Bäume anhängen. Also wird die Wurzel gefüllt.
+        binaryTree = new BinaryTree<>(""); // Ein Baum ohne Wurzel-Inhalt ist auf dauer ein leerer Baum - es lassen sich laut Dokumentation nichtmal Bäume anhängen. Also wird die Wurzel gefüllt.
         createMorseTree();
     }
 
@@ -140,8 +140,24 @@ public class MainController {
     private void showTree(BinaryTree tree, DrawingPanel panel, double startX, double startY, double spaceToTheSide) {
         //TODO 03: Vervollständige diese Methode. Aktuell wird nur der Wurzelknoten gezeichnet.
         if (!tree.isEmpty()) {
+            int rad = 10;
             TreeNode node = new TreeNode(startX, startY, 10, tree.getContent().toString(), false);
             panel.addObject(node);
+            if(!tree.getLeftTree().isEmpty()) {
+                int lX = (int) (startX - spaceToTheSide);
+                int lY = (int) (startY + panel.getHeight() / 6);
+
+                panel.addObject(new TreePath(startX,startY, lX, lY,rad,false));
+                showTree(tree.getLeftTree(), panel, lX, lY, spaceToTheSide / 2);
+            }
+
+            if(!tree.getRightTree().isEmpty()) {
+                int rX = (int) (startX + spaceToTheSide);
+                int rY = (int) (startY + panel.getHeight() / 6);
+
+                panel.addObject(new TreePath(startX,startY, rX, rY,rad,false));
+                showTree(tree.getRightTree(),panel,rX,rY,spaceToTheSide/2);
+            }
         }
     }
 
@@ -161,6 +177,63 @@ public class MainController {
      */
     private String traverse(BinaryTree tree){
         //TODO 04: Nachdem wir geklärt haben, was eine Traversierung ist, muss diese Methode noch vervollständigt werden. Sollte ein Kinderspiel sein.
-        return "Traverse? Wat dat denn?";
+        String output = "";
+        if(!tree.getLeftTree().isEmpty()){
+            output = traverse(tree.getLeftTree());
+        }
+        output += tree.getContent().toString();
+        if(!tree.getRightTree().isEmpty()){
+            output += traverse(tree.getRightTree());
+        }
+
+        return output;
+    }
+
+    public String transcribe(){
+        return null;
+    }
+
+    public String transcribe(char ike){
+        switch (ike){
+            case 'A':
+                return ".-";
+                break;
+            case 'B':
+                return "-...";
+                break;
+            case 'C':
+                return "-.-.";
+                break;
+            case 'D':
+                return "-..";
+                break;
+            case 'E':
+                return ".";
+                break;
+            case 'F':
+                return "..-.";
+                break;
+            case 'G':
+                return "--.";
+                break;
+            case 'H':
+                return "....";
+                break;
+            case 'I':
+                return "..";
+                break;
+            case 'J':
+                return ".---";
+                break;
+            case 'K':
+                return "-.-";
+                break;
+            case 'L':
+                return ".-..";
+                break;
+            case 'M':
+                return "--";
+                break;
+        }
     }
 }

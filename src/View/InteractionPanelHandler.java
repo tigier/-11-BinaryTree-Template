@@ -14,6 +14,8 @@ public class InteractionPanelHandler {
     private JButton displayTreeButton;
     private JTextArea output;
     private JButton traverseButton;
+    private JButton transcribeButton;
+    private JTextField textField1;
 
     private MainController mainController;
     private DrawingPanel treeDisplayPanel;
